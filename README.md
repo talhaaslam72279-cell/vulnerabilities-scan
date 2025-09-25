@@ -1,12 +1,12 @@
 # vulnerabilities-scan
-My report on host 192.168.240.1 identifies a high-severity vulnerability: untrusted SSL/TLS certificates on ports 443/60443 and 8834. The self-signed and private CA certificates break the chain of trust, making the host susceptible to man-in-the-middle attacks. The fix is to replace them with certificates from a publicly trusted CA 
+My report on host 192.168.240.1 identifies a medium-severity vulnerability: untrusted SSL/TLS certificates on ports 443/60443 and 8834. The self-signed and private CA certificates break the chain of trust, making the host susceptible to man-in-the-middle attacks. The fix is to replace them with certificates from a publicly trusted CA 
 
 Vulnerability Report: Untrusted SSL/TLS Certificates
 Host: 192.168.240.1
 
 Vulnerability Analysis
 
-The report indicates that two services on host 192.168.240.1 have untrusted SSL/TLS certificates. A security report typically classifies this as a high-severity vulnerability because it breaks the "chain of trust" and allows for man-in-the-middle (MitM) attacks.
+The report indicates that two services on host 192.168.240.1 have untrusted SSL/TLS certificates. A security report typically classifies this as a medium-severity vulnerability because it breaks the "chain of trust" and allows for man-in-the-middle (MitM) attacks.
 
 • Port 443/60443: The certificate is self-signed, as the Subject (CN=laptop-pkep2uja) and the Issuer are identical. Self-signed certificates are not issued by a recognized Certificate Authority (CA) and are therefore not trusted by default in web browsers and operating systems.
 
@@ -27,7 +27,7 @@ The primary solution is to replace the untrusted certificates with ones from a p
 Documenting the Critical Vulnerability
 
 Vulnerability: Untrusted X.509 Certificate Chain
-Severity: High
+Severity: Medium
 
 Description: The host 192.168.240.1 is using untrusted SSL/TLS certificates on services running on ports 443/60443 and 8834. The certificate for the main web service is self-signed, and the one for the Nessus interface is signed by an unknown internal CA. This lack of a trusted chain makes the services susceptible to man-in-the-middle attacks.
 
